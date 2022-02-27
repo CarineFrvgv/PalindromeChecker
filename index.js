@@ -1,10 +1,13 @@
 // check if a word is a palindrome
 
-
 function removeSpacePunctuation(args){
-    const regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
-    const word = args.replace(regex, '').replace(/\s+/g, '').toLowerCase();
-    console.log(word)
+    // removes punctuation and accentuation
+    const punctuation = /[\u0300-\u036f\!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+    // removes space
+    const space = /\s+/g;
+    // normalize("NFD") decomposes accentuated letters (ó -> [o,´])
+    const word = args.normalize("NFD").replace(punctuation, "").replace(space, "").toLowerCase();
+
     return palindrome(word);
 };
 
@@ -24,7 +27,7 @@ function palindrome(word){
     return true;
 };
 
-console.log(removeSpacePunctuation('Too bad--I hid a boot.'));
+console.log(removeSpacePunctuation('A babá baba.'));
 // console.log(palindrome('tattarrattat'));
 // console.log(palindrome('kayak'));
 // console.log(palindrome('civic'));
