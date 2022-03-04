@@ -21,7 +21,11 @@ body{
     margin-bottom: 20px;
     background-color: #ffffff46;
 }
-
+.white-background{
+    background-color: #ffffff96;
+    border-radius: 15px;
+    padding: 30px 20px;
+}
 .main{
     margin-top: 50px;
 }
