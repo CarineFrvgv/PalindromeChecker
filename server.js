@@ -13,11 +13,11 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 app.get('/', (request, response) => {
-    response.send('main route')
+    response.render('index');
 });
 
 app.get('/palichecker', (request, response) => {
-    response.send('palichecker route');
+    response.render('palichecker');
 });
 
 app.listen(8080, ()=> {
