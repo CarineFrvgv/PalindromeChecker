@@ -1,6 +1,7 @@
 const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
+const ispalindrome = require('./index');
 const app = express();
 
 // serving static files
@@ -12,12 +13,22 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
+// routes
 app.get('/', (request, response) => {
+
     response.render('index');
 });
 
 app.get('/palichecker', (request, response) => {
-    response.render('palichecker');
+    let result = null;
+    response.render('palichecker', {result});
+});
+
+app.post('/palichecker', (request, response) => {
+    let sentence = request.body.sentence;
+    let result = ispalindrome(sentence);
+
+    response.render('palichecker', {result, sentence});
 });
 
 app.listen(8080, ()=> {

@@ -27,23 +27,4 @@ function palindrome(word){
     return true;
 };
 
-console.log(removeSpacePunctuation('A babá baba.'));
-// console.log(palindrome('tattarrattat'));
-// console.log(palindrome('kayak'));
-// console.log(palindrome('civic'));
-// console.log(palindrome('radar'));
-// console.log(palindrome('level'));
-// console.log(palindrome('deified'));
-// console.log(palindrome('rotator'));
-// console.log(palindrome('repaper'));
-// console.log(palindrome('testset'));
-// console.log(palindrome('racecar'));
-// console.log(palindrome('dividerdetartrated'));
-
-
-
-
-
-
-
-
+module.exports = removeSpacePunctuation;
